@@ -11,12 +11,12 @@ minutes: 20
 
 Let's create a file called `mars.txt` that contains some notes
 about the Red Planet's suitability as a base.
-(We'll use `nano` to edit the file;
+(We'll use `emacs` to edit the file;
 you can use whatever editor you like.
 In particular, this does not have to be the `core.editor` you set globally earlier.)
 
 ~~~ {.bash}
-$ nano mars.txt
+$ emacs mars.txt
 ~~~
 
 Type the text below into the `mars.txt` file:
@@ -107,7 +107,7 @@ and its short identifier is `f22b25e`
 We use the `-m` flag (for "message")
 to record a short, descriptive, and specific comment that will help us remember later on what we did and why.
 If we just run `git commit` without the `-m` option,
-Git will launch `nano` (or whatever other editor we configured at the start)
+Git will launch `emacs` (or whatever other editor we configured at the start)
 so that we can write a longer message.
 
 [Good commit messages][commit-messages] start with a brief (<50 characters) summary of
@@ -158,11 +158,11 @@ and the log message Git was given when the revision was created.
 > (and so that we can't accidentally edit or delete an old version).
 
 Now suppose Dracula adds more information to the file.
-(Again, we'll edit with `nano` and then `cat` the file to show its contents;
+(Again, we'll edit with `emacs` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
 ~~~ {.bash}
-$ nano mars.txt
+$ emacs mars.txt
 $ cat mars.txt
 ~~~
 ~~~ {.output}
@@ -302,7 +302,7 @@ First,
 we'll add another line to the file:
 
 ~~~ {.bash}
-$ nano mars.txt
+$ emacs mars.txt
 $ cat mars.txt
 ~~~
 ~~~ {.output}

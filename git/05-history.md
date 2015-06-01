@@ -100,7 +100,7 @@ can we restore older versions of things?
 Let's suppose we accidentally overwrite our file:
 
 ~~~ {.bash}
-$ nano mars.txt
+$ emacs mars.txt
 $ cat mars.txt
 ~~~
 ~~~ {.output}
@@ -220,4 +220,5 @@ moving backward and forward in time becomes much easier.
 >     ~~~
 >     $ git checkout <unique ID of last revision> data_cruncher.py
 >     ~~~
-> 5. Both 2 & 4
+>
+

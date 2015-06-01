@@ -42,7 +42,7 @@ The new collaborator can now make a change in their copy of the repository:
 
 ~~~ {.bash}
 $ cd planets
-$ nano pluto.txt
+$ emacs pluto.txt
 $ cat pluto.txt
 ~~~
 ~~~ {.output}
