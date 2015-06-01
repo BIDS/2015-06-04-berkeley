@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Version Control with Git
-subtitle: Automated version control
+subtitle: Introdution
 minutes: 5
 ---
 > ## Learning Objectives {.objectives}
@@ -16,9 +16,10 @@ automated version control is much better than this situation:
 
 [![Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com](fig/phd101212s.gif)](http://www.phdcomics.com)
 
-"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com
-
-We've all been in this situation before: it seems ridiculous to have multiple nearly-identical versions of the same document. Some word processors let us deal with this a little better, such as Microsoft Word's "Track Changes" or Google Docs' version history.
+We've all been in this situation before: it seems ridiculous to have
+multiple nearly-identical versions of the same document. Some word
+processors let us deal with this a little better, such as Microsoft
+Word's "Track Changes" (which is debatable, anyway) or Google Docs' version history.
 
 Version control systems start with a base version of the document and then save just the changes you made at each step of the way. You can think of it as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
 

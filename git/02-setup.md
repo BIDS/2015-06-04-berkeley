@@ -14,14 +14,14 @@ we need to configure a few things.
 Here's how Dracula sets up his new laptop:
 
 ~~~ {.bash}
-$ git config --global user.name "Vlad Dracula"
-$ git config --global user.email "vlad@tran.sylvan.ia"
-$ git config --global color.ui "auto"
+$ git config --global user.name "Dracula"
+$ git config --global user.email "drac@cs.berkeley.edu"
+$ git config --global core.editor "emacs"
 ~~~
 
-(Please use your own name and email address instead of Dracula's.)
+Who knew, Dracula is an emacs guy!
 
-He also has to set his favorite text editor, following this table:
+Other options for setting your preferred text editor:
 
 | Editor             | Configuration command                            |
 |:-------------------|:-------------------------------------------------|
@@ -40,7 +40,6 @@ In this case,
 we're telling Git:
 
 *   our name and email address,
-*   to colorize output,
 *   what our favorite text editor is, and
 *   that we want to use these settings globally (i.e., for every project),
 
