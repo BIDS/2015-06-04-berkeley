@@ -46,6 +46,11 @@ These lessons will start you on a path towards using these resources effectively
 5.  [Loops](04-loop.html)
 6.  [Shell Scripts](05-script.html)
 7.  [Finding Things](06-find.html)
+8.  [Permissions](07-perm.html)
+9.  [Working Remotely](08-ssh.html)
+10. [Variables](09-var.html)
+11. [Job Control](10-job.html)
+12. [Expansion](11-job.html)
 
 ## Other Resources
 
