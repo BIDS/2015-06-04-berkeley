@@ -6,7 +6,9 @@ level: intermediate
 ---
 <div class="objectives" markdown="1">
 #### Objectives
-*   FIXME
+*   Understand how to log in to a remote computer
+*   Understand public and private ssh keys
+*   Understand how to move files between computers
 </div>
 
 Let's take a closer look at what happens when we use a desktop or laptop
