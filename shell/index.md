@@ -50,7 +50,7 @@ These lessons will start you on a path towards using these resources effectively
 9.  [Working Remotely](08-ssh.html)
 10. [Variables](09-var.html)
 11. [Job Control](10-job.html)
-12. [Expansion](11-job.html)
+12. [Expansion](11-expansion.html)
 
 ## Other Resources
 
