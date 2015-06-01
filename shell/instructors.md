@@ -77,10 +77,10 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   Super cool online resource!  http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.  
 
-*	How to use the materials in the shell-novice repository (or, lesson planning)
+*	How to use the materials in the shell-intermediate repository (or, lesson planning)
 	* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
 	* Use the `data` directory for in-workshop exercises and live coding examples.
-	You can clone the shell-novice directory or use the `Download ZIP` 
+	You can clone the shell-intermediate directory or use the `Download ZIP` 
 	button on the right to get the entire repository; we also now provide 
 	a zip file of the `data` directory that can be downloaded on its own 
 	from the repository by right-click + save.  See the "Get Ready" box 
@@ -92,7 +92,7 @@ as long as learners using Windows do not run into roadblocks such as:
 	* Content: Unless you have a truly generous amount of time (4+ hours), it is likely that you will not cover ALL the material in this lesson in a single half-day session.  Plan ahead on what you might skip, what you really want to emphasize, etc.
 	* Exercises: Think in advance about how you might want to handle exercises during the lesson.  How are you assigning them (website, slide, handout)?  Do you want everyone to try it and then you show the solution?  Have a learner show the solution?  Have groups each do a different exercise and present their solutions?
 	* `reference.md` can be printed out and given to students as a reference, your choice.
-	* Other preparation: Feel free to add your own examples or side comments, but know that it shouldn't be necessary - the topics and commands can be taught as given on the lesson pages!  If you think there is a place where the lesson is lacking, feel free to raise an [issue](https://github.com/swcarpentry/shell-novice/issues) or submit a [pull request](https://github.com/swcarpentry/shell-novice/pulls).
+	* Other preparation: Feel free to add your own examples or side comments, but know that it shouldn't be necessary - the topics and commands can be taught as given on the lesson pages!  If you think there is a place where the lesson is lacking, feel free to raise an [issue](https://github.com/swcarpentry/shell-intermediate/issues) or submit a [pull request](https://github.com/swcarpentry/shell-intermediate/pulls).
 
 *   Setup:
     *   Run `tools/gen-nene.py` to regenerate random data files if needed
@@ -209,7 +209,7 @@ and can reduce installation and configuration at the start of the workshop,
 but:
 
 1.  they don't work well on underpowered machines,
-2.  they're confusing for novices (because simple things like copy and paste work differently),
+2.  they're confusing for intermediates (because simple things like copy and paste work differently),
 3.  learners leave the workshop without a working environment on their operating system of choice, and
 4.  learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.
 

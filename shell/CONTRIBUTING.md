@@ -41,7 +41,7 @@ You also agree to abide by our
 [conduct]: CONDUCT.md
 [christina]: https://github.com/ChristinaLK
 [gabriel]: https://github.com/gdevenyi
-[issues]: https://github.com/swcarpentry/shell-novice/issues
+[issues]: https://github.com/swcarpentry/shell-intermediate/issues
 [lesson-template-issues]: https://github.com/swcarpentry/lesson-template/issues
 [license]: LICENSE.md
 [pro-git-chapter]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
