@@ -30,12 +30,12 @@
           <h2 class="subtitle">Ignoring Things</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
 <li>Configure Git to ignore specific files.</li>
-<li>Explain why it is sometimes useful to do so.</li>
+<li>Explain why ignoring files can be useful.</li>
 </ul>
 </div>
 </section>
@@ -55,7 +55,7 @@ $ <span class="kw">touch</span> a.dat b.dat c.dat results/a.out results/b.out</c
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
 <p>Putting these files under version control would be a waste of disk space. What’s worse, having them all listed could distract us from changes that actually matter, so let’s tell Git to ignore them.</p>
 <p>We do this by creating a file in the root directory of our project called <code>.gitignore</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> .gitignore
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">emacs</span> .gitignore
 $ <span class="kw">cat</span> .gitignore</code></pre>
 <pre class="output"><code>*.dat
 results/</code></pre>
