@@ -53,7 +53,7 @@
 <p>The first of these, <code>ls -l</code>, is the most fundamental. It helps us find out what permission settings apply to files and directories.</p>
 <h2 id="seeing-permissions-ls--l">Seeing Permissions (ls -l)</h2>
 <p>We learned earlier in this chapter that <code>ls</code> lists the contents of a directory. When you explored the <code>man</code> page for <code>ls</code>, perhaps you saw information about the <code>-l</code> flag, which lists the directory contents in the “long format.” This format includes information about permissions.</p>
-<p>Namely, if we run <code>ls -l</code> in a directory in the file system, the first thing we see is a code with 10 permission digits, or ‘’bits.’’ In her <em>fission</em> directory, Lise might see the following “long form” listing. The first 10 bits describe the permissions for the directory contents (both files and directories):</p>
+<p>Namely, if we run <code>ls -l</code> in a directory in the file system, the first thing we see is a code with 10 permission digits, or ‘’bits.’’ In her <em>fission</em> directory, the great radiochemist Lise Meitner might have seen the following “long form” listing. The first 10 bits describe the permissions for the directory contents (both files and directories):</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~/fission</span> $ ls -l
 <span class="kw">drwxrwxr-x</span>  5 lisemeitner  expmt  170 May 30 15:08 applications
 <span class="kw">-rw-rw-r--</span>  1 lisemeitner  expmt   80 May 30 15:08 heat-generation.txt
