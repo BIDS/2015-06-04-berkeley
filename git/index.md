@@ -60,7 +60,7 @@ to be shared can and should be stored in a version control system.
 3.  [Creating a Repository](03-create.html)
 4.  [Tracking Changes](04-changes.html)
 5.  [Exploring History](05-history.html)
-6.  [Exploring History](05b-branch.html)
+6.  [Branching](05b-branch.html)
 7.  [Ignoring Things](06-ignore.html)
 
 ### Part II: Coding just got social - Remote Repositories 
