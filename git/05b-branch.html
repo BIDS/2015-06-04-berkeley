@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Version Control with Git</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title">Version Control with Git</h1>
+          <h2 class="subtitle">Branching</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Create new branches.</li>
+<li>Switch between branches.</li>
+<li>Merge branches.</li>
+</ul>
+</div>
+</section>
+<h2 id="git-branch-listing-creating-and-deleting-branches">git branch : Listing, Creating, and Deleting Branches</h2>
+<p>Branches are pointers to a version of a repository that can be edited and version controlled in parallel. They are useful for pursuing various implementations experimentally or maintaining a stable core while developing separate sections of a code base.</p>
+<p>Without an argument, the <strong>branch</strong> command lists the branches that exist in your repository.</p>
+<pre><code>$ git branch
+* master</code></pre>
+<p>The master branch is created when the repository is initialized. With an argument, the <strong>branch</strong> command creates a new branch with the given name.</p>
+<pre><code>$ git branch 
+$ git branch
+* master
+  experimental</code></pre>
+<p>To delete a branch, use the <strong>-d</strong> flag.</p>
+<pre><code>$ git branch -d experimental
+$ git branch
+* master</code></pre>
+<h2 id="git-checkout-switching-between-branches-abandoning-local-changes">git checkout : Switching Between Branches, Abandoning Local Changes</h2>
+<p>The <strong>git checkout</strong> command allows context switching between branches as well as abandoning local changes.</p>
+<p>To switch between branches, try</p>
+<pre><code>$ git branch newbranch 
+$ git checkout newbranch 
+$ git branch</code></pre>
+<p>How can you tell we’ve switched between branches? When we used the branch command before there was an asterisk next to the master branch. That’s because the asterisk indicates which branch you’re currently in.</p>
+<h2 id="git-merge-merging-branches">git merge : Merging Branches</h2>
+<p>At some point, the experimental branch may be ready to become part of the core or two testing branches may be ready to be combined for further integration testing. The method for combining the changes in two parallel branches is the <strong>merge</strong> command.</p>
+<h3 id="exercise-create-and-merge-branches">Exercise : Create and Merge Branches</h3>
+<p>Step 1 : Create two new branches and list them</p>
+<pre><code>$ git branch first
+$ git branch second</code></pre>
+<p>Step 2 : Make changes in each new branch and commit them.</p>
+<pre><code>$ git checkout first
+Switched to branch &#39;first&#39;
+$ touch firstnewfile
+$ git add firstnewfile
+$ git commit -am &quot;Added firstnewfile to the first branch.&quot;
+[first 68eba44] Added firstnewfile to first branch.
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 firstnewfile
+$ git checkout second
+Switched to branch &#39;second&#39;
+$ touch secondnewfile
+$ git add secondnewfile
+$ git commit -am &quot;Added secondnewfile to the second branch.&quot;
+[second 45dd34c] Added secondnewfile to the second branch.
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 secondnewfile</code></pre>
+<p>Step 3 : Merge the two branches into the core</p>
+<pre><code>$ git checkout first
+Switched to branch &#39;first&#39;
+$ git merge second
+Merge made by recursive.
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+  create mode 100644 secondnewfile
+$ git checkout master
+Switched to branch &#39;master&#39;
+$ git merge first
+Updating 1863aef..ce7e4b5
+Fast-forward
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 firstnewfile
+ create mode 100644 secondnewfile</code></pre>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/git-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
