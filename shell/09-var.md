@@ -1,12 +1,15 @@
 ---
-layout: lesson
+layout: page
 root: ../..
 title: Variables
 level: intermediate
 ---
 <div class="objectives" markdown="1">
 #### Objectives
-*   FIXME
+*   Understand the notion of the bash environment
+*   Understand the behavior of variables within the bash environment
+*   Learn how to query, set, use, and unset variables in a bash session
+*   Understand how to set environment variables automatically for all sessions
 </div>
 
 The shell is just a program, and like other programs, it has variables.
@@ -248,6 +251,11 @@ typing mistakes.
 <div class="keypoints" markdown="1">
 
 #### Key Points
-*   FIXME
+*   The bash shell is an environment whose behavior can be customized
+*   Custiomization of behavior relies on variables within the bash environment
+*   Query and use bash variables with the dollar sign `$`
+*   Set variables with `export` 
+*   Unset variables with `unset`
+*   Use the hidden `.bashrc` file to set environment variables automatically
 
 </div>

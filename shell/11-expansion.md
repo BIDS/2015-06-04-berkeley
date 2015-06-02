@@ -1,5 +1,5 @@
 ---
-layout: lesson
+layout: page
 root: ../..
 title: Filename Expansion
 level: intermediate
