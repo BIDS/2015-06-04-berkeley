@@ -28,7 +28,89 @@
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">Permissions</h1>
           
-<p>FIXME</p>
+<p>Now that you’ve seen how the many simple commands available in the shell can be combined into ad hoc pipelines, the incredible combinatoric algorithmic power of the shell is at your fingertips–but only if you have the right permissions.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Permissions and Sharing</h2>
+</div>
+<div class="panel-body">
+<p>Permissions are a subtle but important part of using and sharing files and using commands on Unix and Linux systems. This topic tends to confuse people, but the basic gist is that different people can be given different types of access to a given file, program, or computer.</p>
+</div>
+</aside>
+<p>At the highest level, the file system is only available to users with a user account on that computer. Based on these permissions, some commands allow users to connect to other computers or send files. For example:</p>
+<ul>
+<li><code>ssh [user@host]</code> connects to another computer.</li>
+<li><code>scp [file] [user@host]:path</code> copies files from one computer to another.</li>
+</ul>
+<p>Those commands only work if the user issuing them has ‘permission’ to log into the file system. Otherwise, he will not be able to access the file system at all.</p>
+<p>Once they have accessed a computer’s file system, however, different types of users may have different types of access to the various files on that system. The ‘’different types of people’‘are the individual <strong>u</strong>ser (u) who owns the file, the <strong>g</strong>roup (g) who’s been granted special access to it, and all <strong>o</strong>thers (o). The’‘different types of access’’ are permission to <strong>r</strong>ead (r), <strong>w</strong>rite to (w), or e__x__ecute (x) a file or directory.</p>
+<p>This section will introduce three commands that allow you to manage the permissions of your files:</p>
+<ul>
+<li><code>ls -l [file]</code> displays, among other things, the permissions for that file.</li>
+<li><code>chown [-R] [[user]][:group] target1 [[target2 ..]]</code> changes the individual user and group ownership of the target(s), recursively if <code>-R</code> is used and one or more targets are directories.</li>
+<li><code>chmod [options] mode[,mode] target1 [[target2 ...]]</code> changes or sets the permissions for the given target(s) to the given mode(s).</li>
+</ul>
+<p>The first of these, <code>ls -l</code>, is the most fundamental. It helps us find out what permission settings apply to files and directories.</p>
+<h2 id="seeing-permissions-ls--l">Seeing Permissions (ls -l)</h2>
+<p>We learned earlier in this chapter that <code>ls</code> lists the contents of a directory. When you explored the <code>man</code> page for <code>ls</code>, perhaps you saw information about the <code>-l</code> flag, which lists the directory contents in the “long format.” This format includes information about permissions.</p>
+<p>Namely, if we run <code>ls -l</code> in a directory in the file system, the first thing we see is a code with 10 permission digits, or ‘’bits.’’ In her <em>fission</em> directory, Lise might see the following “long form” listing. The first 10 bits describe the permissions for the directory contents (both files and directories):</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~/fission</span> $ ls -l
+<span class="kw">drwxrwxr-x</span>  5 lisemeitner  expmt  170 May 30 15:08 applications
+<span class="kw">-rw-rw-r--</span>  1 lisemeitner  expmt   80 May 30 15:08 heat-generation.txt
+<span class="kw">-rw-rw-r--</span>  1 lisemeitner  expmt   80 May 30 15:08 neutron-production.txt</code></pre>
+<p>The first bit displays as a <code>d</code> if the target we’re looking at is a directory, an <code>l</code> if it’s a link, and generally <code>-</code> otherwise. Note that the first bit for the <em>applications</em> directory is a <code>d</code>, for this reason.</p>
+<p>To see the permissions on just one file, the <code>ls -l</code> command can be followed by the filename:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~/fission</span> $ ls -l heat-generation.txt
+<span class="kw">-rw-rw-r--</span>  1 lisemeitner  expmt  80 May 30 15:08 heat-generation.txt</code></pre>
+<p>In this example, only the permissions of the desired file are shown. In the output, we see one dash followed by three sets of three bits for the <em>heat-generation.txt</em> file (<code>-rw-rw-r--</code>). Let’s take a look at what this means:</p>
+<ul>
+<li>The first bit is a dash, <code>-</code>, because it is not a directory.</li>
+<li>The next three bits indicate that the user owner (<code>lisemeitner</code>) can read (<code>r</code>) or write (<code>w</code>) this file, but not execute it (<code>-</code>).</li>
+<li>The following three bits indicate the same permissions (<code>rw-</code>) for the group owner (<code>expmt</code>).</li>
+<li>The final three bits (<code>r--</code>) indicate read (<code>r</code>) but not write or execute permissions for everyone else.</li>
+</ul>
+<p>All together, then, Lise (<code>lisemeitner</code>) and her Experiment research group (<code>expmt</code>) can read or change the file. They cannot run the file as an executable. Finally, other users on the network can only read it (they can never write to or run the file.)</p>
+<p>Said another way, the three sets of three bits indicate permissions for the user owner, group owner, and others (in that order), indicating whether they have read (<code>r</code>), write (<code>w</code>), or execute (<code>x</code>) privileges for that file.</p>
+<p>The <code>ls man</code> page provides additional details on the rest of the information in this display, but for our purposes the other relevant entries here are the two names that follow the permission bits. The first indicates that the user <code>lisemeitner</code> is the individual owner of this file. The second says that the group <code>expmt</code> is the group owner of the file.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>View the Permissions of Your Files</h2>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>Open a terminal.</li>
+<li>Execute <code>ls -l</code> on the command line. What can you learn about your files?</li>
+<li>Change directories to the <em>/</em> directory (try <code>cd /</code>). What are the permissions in this directory? What happens if you try to create an empty file (with <code>touch &lt;filename&gt;</code>) in this directory?</li>
+</ol>
+</div>
+</section>
+<p>In addition to just observing permissions, making changes to permissions on a file system is also important.</p>
+<h3 id="setting-ownership-chown">Setting Ownership (chown)</h3>
+<p>It is often helpful to open file permissions up to one’s colleagues on a file system. Suppose Lise, at the Kaiser Wilhelm Institute, wants to give all members of the institute permission to read and write to one of her files, <em>heat-generation.txt</em>. If those users are all part of a group called <code>kwi</code>, then she can give them those permissions by changing the group ownership of the file. She can handle this task with <code>chown</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~/fission</span> $ chown :kwi heat-generation.txt
+<span class="kw">~/fission</span> $ ls -l heat-generation.txt
+<span class="kw">-rw-rw-r--</span>  1 lisemeitner  kwi  80 May 30 15:08 heat-generation.txt</code></pre>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Change Ownership of a File</h2>
+</div>
+<div class="panel-body">
+<ol style="list-style-type: decimal">
+<li>Open a terminal.</li>
+<li>Execute the <code>groups</code> command to determine the groups that you are a part of.</li>
+<li>Use <code>chown</code> to change the ownership of a file to one of the groups you are a part of.</li>
+<li>Repeat step 3, but change the group ownership back to what it was before.</li>
+</ol>
+</div>
+</section>
+<p>However, just changing the permissions of the file is not quite sufficient, because directories that are not executable by a given user can’t be navigated into, and directories that aren’t readable by a given user can’t be printed with <code>ls</code>. So, she must also make sure that members of this group can navigate to the file. The next section will show how this can be done.</p>
+<h3 id="setting-permissions-chmod">Setting Permissions (chmod)</h3>
+<p>Lise must make sure her colleagues can visit and read the dictionary containing the file. Such permissions can be changed by using <code>chmod</code>, which changes the file ‘mode’. Since this is a directory, it must be done in recursive mode. If she knows her home directory can be visited by members of the <code>kwi</code> group, then she can set the permissions on the entire directory tree under <em>~/fission</em> with two commands. The first is again, <code>chown</code>. It sets the fission directory’s group owner (recursively) to be <code>kwi</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span> $  <span class="kw">chown</span> -R :kwi fission/</code></pre>
+<p>Next, Lise changes the file mode with <code>chmod</code>. The <code>chmod</code> syntax is <code>chmod [options] &lt;mode&gt; &lt;path&gt;</code>. She specifies the recursive option, <code>-R</code>, then the mode to change the <strong>g</strong>roup permissions, adding (<code>+</code>) reading and e<strong>x</strong>ecution permissions with <code>g+rx</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">~</span> $  <span class="kw">chmod</span> -R g+rx fission/</code></pre>
+<p>Many other modes are available to the <code>chmod</code> command. The mode entry <code>g+rx</code> means we <em>add</em> the read and execution bits to the group’s permissions for the file. Can you guess the syntax for subtracting the group’s read permissions? The manual page for <code>chmod</code> goes into exceptional detail about the ways to specify file permissions. Go there for special applications.</p>
+<p>Physicists using large scientific computing systems rely heavily on permissions to securely and robustly share data files and programs with multiple users. All of these permissions tools are helpful with organizing files. Another tool available for organizing files across file systems is the ‘symbolic link.’</p>
         </div>
       </div>
       </article>

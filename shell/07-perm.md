@@ -1,5 +1,5 @@
 ---
-layout: lesson
+layout: page
 root: ../..
 title: Permissions
 level: intermediate
@@ -32,10 +32,10 @@ file system. Otherwise, he will not be able to access the file system at all.
 
 Once they have accessed a computer's file system, however, different types of users may
 have different types of access to the various files on that system. The
-``different types of people'' are the individual __u__ser (u) who owns the file,
+''different types of people'' are the individual __u__ser (u) who owns the file,
 the __g__roup (g) who's been granted special access to it, and all
 __o__thers (o). The
-``different types of access'' are permission to __r__ead (r),
+''different types of access'' are permission to __r__ead (r),
 __w__rite to (w), or e__x__ecute (x) a file or directory.
 
 This section will introduce three commands that allow you to manage the
@@ -48,7 +48,7 @@ permissions of your files:
 The first of these, `ls -l`, is the most fundamental. It helps us find out what
 permission settings apply to files and directories.
 
-##= Seeing Permissions (ls -l)
+## Seeing Permissions (ls -l)
 
 We learned earlier in this chapter that `ls` lists the contents of a
 directory. When you
@@ -58,8 +58,9 @@ This format includes information about permissions.
 
 Namely, if we run `ls -l` in a directory in the file system, the first
 thing we see is a code with 10 permission digits, or ''bits.'' In her
-_fission_ directory, Lise might see the following "long form" listing.
-The first 10 bits describe the permissions for the directory contents (both files and directories):
+_fission_ directory, the great radiochemist Lise Meitner might have seen the 
+following "long form" listing.  The first 10 bits describe the permissions for 
+the directory contents (both files and directories):
 
 
 ~~~ {.bash}
@@ -110,24 +111,17 @@ the two names that follow the permission bits. The first indicates that the user
 that the group `expmt` is the group owner of the file.
 
 
-.Exercise: View the Permissions of Your Files
-[TIP]
-##########
-. Open a terminal.
-
-. Execute `ls -l` on the command line. What can you learn about your
-files?
-
-. Change directories to the _/_ directory (try `cd /`). What
-are the permissions in this directory? What happens if you try to
-create an empty file (with `touch <filename>`) in this directory?
-
-##########
+> ## View the Permissions of Your Files {.challenge}
+> 1. Open a terminal.
+> 2. Execute `ls -l` on the command line. What can you learn about your files?
+> 3. Change directories to the _/_ directory (try `cd /`). What
+> are the permissions in this directory? What happens if you try to
+> create an empty file (with `touch <filename>`) in this directory?
 
 In addition to just observing permissions, making changes to
 permissions on a file system is also important.
 
-##= Setting Ownership (chown)
+### Setting Ownership (chown)
 
 It is often helpful to open file permissions up to one's colleagues on
 a file system. Suppose Lise, at the Kaiser Wilhelm Institute, wants to give all members of the institute permission to read and write to one of
@@ -142,21 +136,14 @@ give them those permissions by changing the group ownership of the file. She can
 ~~~
 
 
-.Exercise: Change Ownership of a File
-[TIP]
-##########
-. Open a terminal.
-
-. Execute the `groups` command to determine the groups that you are a
+> ## Change Ownership of a File {.challenge}
+> 1. Open a terminal.
+> 2. Execute the `groups` command to determine the groups that you are a
 part of.
-
-. Use `chown` to change the ownership of a file to one of the
+> 3. Use `chown` to change the ownership of a file to one of the
 groups you are a part of.
-
-. Repeat step 3, but change the group ownership back to what it was
+> 4. Repeat step 3, but change the group ownership back to what it was
 before.
-
-##########
 
 However, just changing the permissions of the file is not quite
 sufficient, because directories that are not executable by a given user
@@ -165,7 +152,7 @@ given user can't be printed with `ls`.  So, she must also make sure
 that members of this group can navigate to the file. The next section
 will show how this can be done.
 
-##= Setting Permissions (chmod)
+### Setting Permissions (chmod)
 
 Lise must make sure her colleagues can visit and read the dictionary containing the file. Such permissions can be changed by using
 `chmod`, which changes the file 'mode'. Since this is a directory, it
