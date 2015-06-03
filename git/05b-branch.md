@@ -29,7 +29,7 @@ The master branch is created when the repository is initialized. With an
 argument, the **branch** command creates a new branch with the given
 name.
 
-    $ git branch 
+    $ git branch experimental
     $ git branch
     * master
       experimental
