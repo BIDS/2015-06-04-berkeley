@@ -61,6 +61,12 @@ $ git branch
 $ git checkout newbranch 
 $ git branch</code></pre>
 <p>How can you tell we’ve switched between branches? When we used the branch command before there was an asterisk next to the master branch. That’s because the asterisk indicates which branch you’re currently in.</p>
+<p>Also, there’s a neat trick using .bashrc which is way better. To never wonder again, put this in your ~/.bashrc file:</p>
+<pre><code>parse_git_branch() {
+    git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/^* \(.*\)/(branch: \1)/&#39;
+}
+
+PS1=&quot;\$(parse_git_branch)\n$ &quot;</code></pre>
 <h2 id="git-merge-merging-branches">git merge : Merging Branches</h2>
 <p>At some point, the experimental branch may be ready to become part of the core or two testing branches may be ready to be combined for further integration testing. The method for combining the changes in two parallel branches is the <strong>merge</strong> command.</p>
 <h3 id="exercise-create-and-merge-branches">Exercise : Create and Merge Branches</h3>

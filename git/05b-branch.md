@@ -55,6 +55,19 @@ How can you tell we've switched between branches? When we used the
 branch command before there was an asterisk next to the master branch.
 That's because the asterisk indicates which branch you're currently in.
 
+
+Also, there's a neat trick using .bashrc which is way better. To never wonder 
+again, put this in your ~/.bashrc file:
+
+~~~
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/^* \(.*\)/(branch: \1)/'
+}
+
+PS1="\$(parse_git_branch)\n$ "
+~~~
+
+
 ## git merge : Merging Branches
 
 At some point, the experimental branch may be ready to become part of
