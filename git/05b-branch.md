@@ -29,7 +29,7 @@ The master branch is created when the repository is initialized. With an
 argument, the **branch** command creates a new branch with the given
 name.
 
-    $ git branch 
+    $ git branch experimental
     $ git branch
     * master
       experimental
@@ -54,6 +54,19 @@ To switch between branches, try
 How can you tell we've switched between branches? When we used the
 branch command before there was an asterisk next to the master branch.
 That's because the asterisk indicates which branch you're currently in.
+
+
+Also, there's a neat trick using .bashrc which is way better. To never wonder 
+again, put this in your ~/.bashrc file:
+
+~~~
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/^* \(.*\)/(branch: \1)/'
+}
+
+PS1="\$(parse_git_branch)\n$ "
+~~~
+
 
 ## git merge : Merging Branches
 

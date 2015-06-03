@@ -380,7 +380,7 @@ class Dependency (object):
 
 class PythonDependency (Dependency):
     def __init__(self, name='python', long_name='Python version',
-                 minimum_version=(2, 6), **kwargs):
+                 minimum_version=(3, 3), **kwargs):
         super(PythonDependency, self).__init__(
             name=name, long_name=long_name, minimum_version=minimum_version,
             **kwargs)
