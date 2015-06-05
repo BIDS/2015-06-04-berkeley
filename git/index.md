@@ -59,21 +59,20 @@ to be shared can and should be stored in a version control system.
 2.  [Setting Up Git](02-setup.html)
 3.  [Creating a Repository](03-create.html)
 4.  [Tracking Changes](04-changes.html)
-5.  [Exploring History](05-history.html)
-6.  [Branching](05b-branch.html)
-7.  [Ignoring Things](06-ignore.html)
+5.  [Branching](05-branch.html)
+6.  [Ignoring Things](06-ignore.html)
 
 ### Part II: Coding just got social - Remote Repositories 
 
-8.  [Remotes in GitHub](07-github.html)
-9.  [Collaborating](08-collab.html)
-10.  [Conflicts](09-conflict.html)
+7.  [Remotes in GitHub](07-github.html)
+8.  [Collaborating](08-collab.html)
+9.  [Conflicts](09-conflict.html)
 
 ### Additional Topics
 
-11. [Open Science](10-open.html)
-12. [Licensing](11-licensing.html)
-13. [Hosting](12-hosting.html)
+10. [Open Science](10-open.html)
+11. [Licensing](11-licensing.html)
+12. [Hosting](12-hosting.html)
 
 ### Other Resources
 
