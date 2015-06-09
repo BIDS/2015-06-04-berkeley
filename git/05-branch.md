@@ -31,8 +31,8 @@ name.
 
     $ git branch experimental
     $ git branch
-    * master
       experimental
+    * master
 
 To delete a branch, use the **-d** flag.
 
